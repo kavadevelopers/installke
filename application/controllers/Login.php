@@ -9,7 +9,11 @@ class Login extends CI_Controller
 
 	public function index()
 	{	
-		$this->load->view('login');
+		if($this->session->userdata('loginId')){
+			redirect(base_url('dashboard'));
+		}else{
+			redirect(base_url('login'));
+		}
 	}
 
 	public function check()
