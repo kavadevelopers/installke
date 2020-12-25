@@ -37,7 +37,7 @@ class Register extends CI_Controller
 			];
 			$this->db->insert('login',$data);
 			$this->session->set_flashdata('success', 'Registration Successful');
-			redirect(base_url());
+			redirect(base_url('login'));
 		}
 
 	}

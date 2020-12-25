@@ -75,7 +75,7 @@
         <script type="text/javascript" src="<?= base_url('assets/') ?>scripts/custom.js"></script>
         <script type="text/javascript" src="<?= base_url('assets/kava/') ?>script.js"></script>
         <script type="text/javascript">
-            var recaptchaOk = false;
+            var recaptchaOk = true;
             function getRecaptchaToken(token) {
                 recaptchaOk = true;
             }
