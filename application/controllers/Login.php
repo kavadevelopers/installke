@@ -17,7 +17,7 @@ class Login extends CI_Controller
 		$user = $this->db->get_where('login',['mobile' => $this->input->post('mobile'),'df' => ''])->row_array();
 		if($user){
 			if($user['pass'] == $this->input->post('pass')){
-				if($user['blocked'] == 'yes'){
+				if($user['blocked'] == ''){
 					$this->session->set_userdata(array('loginId' => $user['id']));
 					retJson(array(0,''));
 				}else{
