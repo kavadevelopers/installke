@@ -18,6 +18,7 @@ class Setting extends CI_Controller
 	{
 		$this->form_validation->set_error_delimiters('<div class="val-error">', '</div>');
 		$this->form_validation->set_rules('company', 'Company Name','trim|required');
+		$this->form_validation->set_rules('recatcha_key', 'Recaptcha Key','trim|required');
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -27,7 +28,8 @@ class Setting extends CI_Controller
 		else
 		{ 
 			$data = [
-				'name'							=> $this->input->post('company')
+				'name'							=> $this->input->post('company'),
+				'recatcha_key'					=> $this->input->post('recatcha_key'),
 			];
 
 			$this->db->where('id','1');

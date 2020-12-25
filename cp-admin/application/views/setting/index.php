@@ -22,6 +22,13 @@
                             <?= form_error('company') ?>
                         </div>
                     </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Recaptcha Key <span class="-req">*</span></label>
+                            <input name="recatcha_key" type="text" class="form-control" value="<?= set_value('recatcha_key',get_setting()['recatcha_key']); ?>" >
+                            <?= form_error('recatcha_key') ?>
+                        </div>
+                    </div> 
                 </div>
             </div>
             <div class="card-footer text-right">

@@ -55,7 +55,7 @@
                                 <span>Invitation Code</span>
                                 <input type="text" name="invitation" placeholder="Invitation Code" value="<?= set_value('invitation') ?>">
                             </div>
-                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="getRecaptchaToken" data-expired-callback="expiredRecaptchaCallback"></div>
+                            <div class="g-recaptcha" data-sitekey="<?= get_setting()['recatcha_key'] ?>" data-callback="getRecaptchaToken" data-expired-callback="expiredRecaptchaCallback"></div>
                             <button type="submit" id="loginBtn" class="btn has-icon btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s" style="width: 100%;">Create Account</button>
                         </form>
                         <div class="row pt-3 mb-3">
