@@ -12,7 +12,7 @@ class Login extends CI_Controller
 		if($this->session->userdata('loginId')){
 			redirect(base_url('dashboard'));
 		}else{
-			redirect(base_url('login'));
+			$this->load->view('login');
 		}
 	}
 
