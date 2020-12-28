@@ -19,7 +19,6 @@
                     	<i class="fa fa-angle-right"></i>
                     </a>
                 </div>
-                <h6 class="menu-divider font-10 mt-4">Made with <i class="fa fa-heart color-red-dark pl-1 pr-1"></i> by <a target="_blank" href="https://www.kavadevelopers.com">Kava Developers</a> <span class="copyright-year"></span></h6>
             </div>
 			<div id="menu-share" class="menu menu-box-bottom rounded-m" data-menu-height="370">
                 <div class="menu-title">

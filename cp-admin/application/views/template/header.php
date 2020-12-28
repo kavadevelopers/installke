@@ -15,9 +15,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Kava Developers">
-    <meta name="keywords" content="Kava Developers">
-    <meta name="author" content="Kava Developers">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" href="<?= base_url() ?>asset/images/favicon.png" type="image/x-icon">
     <script type="text/javascript" src="<?= base_url() ?>asset/bower_components/jquery/js/jquery.min.js"></script>

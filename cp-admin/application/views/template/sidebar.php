@@ -35,6 +35,15 @@
                         </a>
                     </li>
                 </ul>
+                <div class="pcoded-navigatio-lavel">CMS</div>
+                <ul class="pcoded-item pcoded-left-item">
+                    <li class="<?= menu(2,["slider"])[0]; ?>">
+                        <a href="<?= base_url('cms/slider') ?>">
+                            <span class="pcoded-micon"><i class="fa fa-picture-o"></i></span>
+                            <span class="pcoded-mtext">Slider</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <div class="pcoded-content">

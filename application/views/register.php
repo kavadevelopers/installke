@@ -30,6 +30,11 @@
                             <div class="alert alert-danger" id="errorMsg" style="display: none;">
                                 
                             </div>
+                            <?php if(!empty($this->session->flashdata('success'))){ ?>
+                                <div class="alert alert-success">
+                                    <?= $this->session->flashdata('success') ?>
+                                </div>
+                            <?php } ?>
                         </div>
                         <form method="post" action="<?= base_url('register/save') ?>" id="registrationForm">
                             <div class="input-style has-icon input-style-1 input-required">
@@ -63,7 +68,7 @@
                                 
                             </div>
                             <div class="col-6 text-right">
-                                <a href="<?= base_url('login') ?>">Login Here</a>
+                                <a href="<?= base_url('login/red_login') ?>">Login Here</a>
                             </div>
                         </div>
                     </div>
@@ -75,7 +80,7 @@
         <script type="text/javascript" src="<?= base_url('assets/') ?>scripts/custom.js"></script>
         <script type="text/javascript" src="<?= base_url('assets/kava/') ?>script.js"></script>
         <script type="text/javascript">
-            var recaptchaOk = true;
+            var recaptchaOk = false;
             function getRecaptchaToken(token) {
                 recaptchaOk = true;
             }

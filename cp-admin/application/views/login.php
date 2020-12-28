@@ -129,11 +129,7 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="text-center" style="margin: 0; line-height: 2px; font-size: 12px;"> <b>Powered by : </b> 
-                                                <a href="http://kavadevelopers.com" target="_blank" style="font-size: 12px;">
-                                                    Kava Developers
-                                                </a>
-                                            </p>
+                                            
                                         </div>
                                         
                                     </div>

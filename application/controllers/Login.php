@@ -41,4 +41,14 @@ class Login extends CI_Controller
 	    $this->session->sess_destroy();
 	    redirect(base_url(),'refresh');
 	}
+
+	public function red_register()
+	{
+		redirect(base_url('register'),'refresh');
+	}
+
+	public function red_login()
+	{
+		redirect(base_url(),'refresh');
+	}
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Working On Updates | <?= get_setting()['name']; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Kava Developers">
+    <meta name="author" content="">
     <!-- ================= Favicons ================== -->
     <link rel="icon" href="<?= base_url() ?>asset/images/favicon.png" type="image/x-icon">
     <!-- ============== Resources style ============== -->

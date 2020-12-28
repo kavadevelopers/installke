@@ -49,7 +49,7 @@
                                 <a class="" href="#">Forgot Password?</a>
                             </div>
                             <div class="col-6 text-right">
-                                <a class="" href="<?= base_url('register') ?>">Create Account</a>
+                                <a class="" href="<?= base_url('login/red_register') ?>">Create Account</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         success: function(out)
                         {
                             if(out[0] == '0'){   
-                                window.location = "<?= base_url() ?>";
+                                window.location = "<?= base_url('dashboard') ?>";
                             }else{
                                 $('#errorMsg').html(out[1]);
                                 $('#errorMsg').show();

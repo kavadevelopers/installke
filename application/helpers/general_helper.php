@@ -63,7 +63,7 @@ function getPretyDateTime($date)
 
 function rs()
 {
-    return "₹";
+    return "₹ ";
 } 
 
 function getFileExtension($filename){
@@ -82,6 +82,12 @@ function preLoader()
     return '<div id="preloader">
         <div class="spinner-border color-highlight" role="status"></div>
     </div>';
+}
+
+function getSlider()
+{
+    $ci=& get_instance();
+    return $ci->db->get_where('sliders')->result_array();
 }
 
 function createReferalNum()
