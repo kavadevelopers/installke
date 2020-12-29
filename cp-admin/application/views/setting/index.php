@@ -22,18 +22,25 @@
                             <?= form_error('company') ?>
                         </div>
                     </div> 
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <div class="form-group">
                             <label>Recaptcha Key <span class="-req">*</span></label>
                             <input name="recatcha_key" type="text" class="form-control" value="<?= set_value('recatcha_key',get_setting()['recatcha_key']); ?>" >
                             <?= form_error('recatcha_key') ?>
                         </div>
-                    </div> 
+                    </div> --> 
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Tawk To Link <span class="-req">*</span></label>
                             <input name="talktolink" type="text" class="form-control" value="<?= set_value('talktolink',get_setting()['talktolink']); ?>" >
                             <?= form_error('talktolink') ?>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Invite Text <span class="-req">*</span></label>
+                            <textarea name="invitetext" type="text" rows="5" class="form-control"><?= set_value('invitetext',get_setting()['invitetext']); ?></textarea>
+                            <?= form_error('invitetext') ?>
                         </div>
                     </div> 
                 </div>

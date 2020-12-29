@@ -11,7 +11,12 @@ class Register extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('register');
+		$invitation = "";
+		if($this->input->get('inv')){
+			$invitation = $this->input->get('inv');
+		}
+		$data['inv']	=  $invitation;
+		$this->load->view('register',$data);
 	}
 
 
@@ -22,10 +27,12 @@ class Register extends CI_Controller
 		$this->form_validation->set_rules('mobile', 'Mobile No.','trim|required|min_length[10]|max_length[10]|callback_check_mobile');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|matches[password]');
+		$this->form_validation->set_rules('invitation', 'Invitation Code', 'callback_check_invitation');
 
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('register');
+			$data['inv']	=  $this->input->post('invitation');
+			$this->load->view('register',$data);
 		}
 		else
 		{ 
@@ -34,6 +41,8 @@ class Register extends CI_Controller
 				'pass'			=> $this->input->post('password'),
 				'invitation'	=> $this->input->post('invitation'),
 				'usercode'		=> createReferalNum(),
+				'plan'			=> '1',
+				'expireon'		=> getTommorrow(),
 				'blocked'		=> '',
 				'df'			=> '',
 				'created_at'	=> date('Y-m-d H:i:s')
@@ -62,6 +71,16 @@ class Register extends CI_Controller
 	{
 		if($this->db->get_where('login',['mobile' => $this->input->post('mobile'),'df' => ''])->row_array()){
 			$this->form_validation->set_message('check_mobile', 'Mobile Already Exists');
+        	return false;
+		}else{
+			return true;
+		}
+	}
+
+	public function check_invitation()
+	{	
+		if($this->input->post('invitation') != "" && !$this->db->get_where('login',['usercode' => $this->input->post('invitation'),'df' => ''])->row_array()){
+			$this->form_validation->set_message('check_invitation', 'Please Enter Valid Invitation Code');
         	return false;
 		}else{
 			return true;

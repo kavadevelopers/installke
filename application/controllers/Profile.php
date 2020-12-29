@@ -25,6 +25,38 @@ class Profile extends CI_Controller
 		$this->load->theme('profile/setting',$data);		
 	}
 
+	public function invite()
+	{
+		$data['_title']		= "Invite";
+		$this->load->theme('profile/invite',$data);		
+	}
+
+	public function tutorial()
+	{
+		$data['_title']		= "Tutorials";
+		$data['list']		= $this->db->order_by('title','asc')->get_where('tutorials')->result_array();
+		$this->load->theme('profile/tutorials',$data);
+	}
+
+	public function message_center()
+	{
+		$data['_title']		= "Message Center";
+		$data['list']		= $this->db->order_by('id','desc')->limit(50)->get_where('messages')->result_array();
+		$this->load->theme('profile/message_center',$data);
+	}
+
+	public function page($id)
+	{
+		$page = $this->db->get_where('pages',['id' => base64_decode($id)])->row_array();
+		if($page){
+			$data['_title']		= $page['title'];
+			$data['page']		= $page;
+			$this->load->theme('profile/page',$data);
+		}else{
+			redirect(base_url('error404'));
+		}
+	}
+
 	public function save_password()
 	{
 		$data = [
@@ -50,4 +82,6 @@ class Profile extends CI_Controller
 		$this->session->set_flashdata('success', 'Bank Info Updated');
 		redirect(base_url('profile/personal_info'));
 	}
+
+	
 }

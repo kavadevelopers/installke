@@ -27,9 +27,14 @@ function _sortdate($datetime)
     }
 }
 
-function getTommorrow()
+function getYesterday()
 {
     return date('Y-m-d',strtotime("-1 day",strtotime(date('Y-m-d'))));
+}
+
+function getTommorrow()
+{
+    return date('Y-m-d',strtotime("+1 day",strtotime(date('Y-m-d'))));
 }
 
 function vd($date)
@@ -59,6 +64,11 @@ function vt($time){
 function getPretyDateTime($date)
 {
     return date('d M Y h:i A',strtotime($date));
+}
+
+function getPretyDate($date)
+{
+    return date('d M Y',strtotime($date));
 }
 
 function rs()
@@ -100,6 +110,12 @@ function getUser()
 {
     $ci=& get_instance();
     return $ci->db->get_where('login',['id' => $ci->session->userdata('loginId')])->row_array();
+}
+
+function getPlan($id)
+{
+    $ci=& get_instance();
+    return $ci->db->get_where('plans',['id' => $id])->row_array();
 }
 
 function getBank()

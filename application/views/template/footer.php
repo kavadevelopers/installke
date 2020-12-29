@@ -31,6 +31,11 @@
                 <div class="mt-4"></div>
                 <h6 class="menu-divider">Library</h6>
                 <div class="list-group list-custom-small list-menu">
+                    <a href="<?= base_url('profile/tutorial') ?>">
+                        <i class="fa fa-info gradient-blue color-white"></i>
+                        <span>Tutorials</span>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 	<a href="<?= base_url('login/logout') ?>">
                     	<i class="fa fa-power-off gradient-red color-white"></i>
                     	<span>Logout</span>

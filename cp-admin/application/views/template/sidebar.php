@@ -74,6 +74,30 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="pcoded-item pcoded-left-item">
+                    <li class="<?= menu(2,["message_center"])[0]; ?>">
+                        <a href="<?= base_url('cms/message_center') ?>">
+                            <span class="pcoded-micon"><i class="fa fa-bell"></i></span>
+                            <span class="pcoded-mtext">Message Center</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pcoded-item pcoded-left-item">
+                    <li class="<?= menu(2,["pages"])[0]; ?>">
+                        <a href="<?= base_url('cms/pages') ?>">
+                            <span class="pcoded-micon"><i class="fa fa-file"></i></span>
+                            <span class="pcoded-mtext">Pages</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pcoded-item pcoded-left-item">
+                    <li class="<?= menu(2,["tutorials"])[0]; ?>">
+                        <a href="<?= base_url('cms/tutorials') ?>">
+                            <span class="pcoded-micon"><i class="fa fa-info"></i></span>
+                            <span class="pcoded-mtext">Tutorials</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <div class="pcoded-content">

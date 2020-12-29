@@ -25,7 +25,7 @@
     </a>
 </div>
 
-<a href="#">
+<a href="<?= base_url('profile/invite') ?>">
     <div class="card card-style bg-primary-k">
         <div class="d-flex pt-3 mt-1 mb-2 pb-2">
             <div class="align-self-center">
@@ -41,7 +41,7 @@
 
 <div class="single-slider owl-carousel owl-no-dots mb-0">
     <?php foreach (getSlider() as $key => $value) { ?>
-        <a href="#" class="card card-style" data-card-height="150" style="background-image: url(<?= base_url(get_setting()['admin_folder'].'/uploads/banner/').$value['image'] ?>);">
+        <a href="<?= $value['link'] ?>" class="card card-style" data-card-height="150" style="background-image: url(<?= base_url(get_setting()['admin_folder'].'/uploads/banner/').$value['image'] ?>);">
         </a>    
     <?php } ?>
 </div>

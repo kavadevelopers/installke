@@ -14,7 +14,7 @@
     <div class="row">
 
         <?php if($_e == 0){ ?>
-            <div class="col-md-3">
+            <div class="col-md-3" style="display: none;">
                 <div class="card">
                     <form method="post" action="<?= base_url('plans/save') ?>" enctype="multipart/form-data">
                         <div class="card-block">
@@ -77,7 +77,7 @@
                 </div>
             </div>
         <?php }else{ ?>
-            <div class="col-md-3">
+            <div class="col-md-3" style="display: none;">
                 <div class="card">
                     <form method="post" action="<?= base_url('plans/update') ?>" enctype="multipart/form-data">
                         <div class="card-block">
@@ -146,7 +146,7 @@
         <?php } ?>
         
 
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-block table-responsive">
                     <table class="table table-striped table-bordered table-mini table-dt">
@@ -159,7 +159,7 @@
                                 <th class="text-right">Daily Inc.</th>
                                 <th class="text-right">Monthly Inc.</th>
                                 <th class="text-right">Anual Inc.</th>
-                                <th class="text-center">Action</th>
+                                <!-- <th class="text-center">Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -172,14 +172,14 @@
                                     <td class="text-right"><?= $value['daily_income'] ?></td>
                                     <td class="text-right"><?= $value['monthly_income'] ?></td>
                                     <td class="text-right"><?= $value['anual_income'] ?></td>
-                                    <td class="text-center">
+                                    <!-- <td class="text-center">
                                         <a href="<?= base_url('plans/edit/').$value['id'] ?>" class="btn btn-primary btn-mini">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                         <a href="<?= base_url('plans/delete/').$value['id'] ?>" class="btn btn-danger btn-mini btn-delete">
                                             <i class="fa fa-trash"></i>
                                         </a>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php } ?>
                         </tbody>

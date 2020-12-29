@@ -103,4 +103,9 @@ function menu($seg,$array)
         }
     }
 }
+
+function getPageLink($id)
+{
+    return str_replace("cp-admin/","",base_url()).'profile/page/'.base64_encode($id);
+}
 ?>

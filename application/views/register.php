@@ -13,7 +13,7 @@
         <link rel="icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
         <script type="text/javascript" src="<?= base_url('assets/') ?>scripts/jquery.js"></script>
         <link rel="stylesheet" type="text/css" href="<?= base_url('assets/kava/') ?>style.css" />
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
     </head>
     <body class="theme-light">
         <?= preLoader(); ?>
@@ -24,8 +24,8 @@
                         <div class="text-center">
                             <img src="<?= base_url('assets/images/logo.png') ?>" style="width: 70%;">
                         </div>
-                        <p class="font-600 color-highlight mb-n1">Free Accounts</p>
-                        <h1 class="font-30">Register</h1>
+                        <!-- <p class="font-600 color-highlight mb-n1">Free Accounts</p> -->
+                        <h1 class="font-30 mt-2">Register</h1>
                         <p>
                             Create an account, it's free and gives you tones of benefits!
                         </p>
@@ -43,7 +43,7 @@
                             <div class="input-style has-icon input-style-1 input-required">
                                 <i class="input-icon fa fa-user"></i>
                                 <span>Mobile</span>
-                                <input type="mobile" placeholder="Mobile" class="decimal-num" name="mobile" autocomplete="off" value="<?= set_value('mobile') ?>" required>
+                                <input type="mobile" placeholder="Mobile" class="numbers" name="mobile" autocomplete="off" value="<?= set_value('mobile') ?>" required>
                                 <?= form_error('mobile') ?>
                             </div>
                             <div class="input-style has-icon input-style-1 input-required">
@@ -61,9 +61,10 @@
                             <div class="input-style has-icon input-style-1 input-required">
                                 <i class="input-icon fa fa-bullhorn"></i>
                                 <span>Invitation Code</span>
-                                <input type="text" name="invitation" placeholder="Invitation Code" value="<?= set_value('invitation') ?>">
+                                <input type="text" name="invitation" class="numbers" placeholder="Invitation Code" value="<?= set_value('invitation',$inv) ?>">
+                                <?= form_error('invitation') ?>
                             </div>
-                            <div class="g-recaptcha" data-sitekey="<?= get_setting()['recatcha_key'] ?>" data-callback="getRecaptchaToken" data-expired-callback="expiredRecaptchaCallback"></div>
+                            <!-- <div class="g-recaptcha" data-sitekey="<?= get_setting()['recatcha_key'] ?>" data-callback="getRecaptchaToken" data-expired-callback="expiredRecaptchaCallback"></div> -->
                             <button type="submit" id="loginBtn" class="btn has-icon btn-full btn-l font-600 font-13 gradient-highlight mt-4 rounded-s" style="width: 100%;">Create Account</button>
                         </form>
                         <div class="row pt-3 mb-3">
@@ -83,7 +84,7 @@
         <script type="text/javascript" src="<?= base_url('assets/') ?>scripts/custom.js"></script>
         <script type="text/javascript" src="<?= base_url('assets/kava/') ?>script.js"></script>
         <script type="text/javascript">
-            var recaptchaOk = false;
+            var recaptchaOk = true;
             function getRecaptchaToken(token) {
                 recaptchaOk = true;
             }
