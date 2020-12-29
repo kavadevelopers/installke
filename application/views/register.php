@@ -21,6 +21,9 @@
             <div class="page-content header-clear-medium">
                 <div class="card card-style">
                     <div class="content px-4">
+                        <div class="text-center">
+                            <img src="<?= base_url('assets/images/logo.png') ?>" style="width: 70%;">
+                        </div>
                         <p class="font-600 color-highlight mb-n1">Free Accounts</p>
                         <h1 class="font-30">Register</h1>
                         <p>
@@ -40,7 +43,7 @@
                             <div class="input-style has-icon input-style-1 input-required">
                                 <i class="input-icon fa fa-user"></i>
                                 <span>Mobile</span>
-                                <input type="mobile" placeholder="Mobile" class="decimal-num" name="mobile" value="<?= set_value('mobile') ?>" required>
+                                <input type="mobile" placeholder="Mobile" class="decimal-num" name="mobile" autocomplete="off" value="<?= set_value('mobile') ?>" required>
                                 <?= form_error('mobile') ?>
                             </div>
                             <div class="input-style has-icon input-style-1 input-required">

@@ -33,9 +33,24 @@ class Register extends CI_Controller
 				'mobile'		=> $this->input->post('mobile'),
 				'pass'			=> $this->input->post('password'),
 				'invitation'	=> $this->input->post('invitation'),
-				'usercode'		=> createReferalNum()
+				'usercode'		=> createReferalNum(),
+				'blocked'		=> '',
+				'df'			=> '',
+				'created_at'	=> date('Y-m-d H:i:s')
 			];
 			$this->db->insert('login',$data);
+			$loginId = $this->db->insert_id();
+
+			$data = [
+				'name'	=> "",
+				'acc_no'	=> "",
+				'bank'	=> "",
+				'ifsc'	=> "",
+				'paytm'	=> "",
+				'user'	=> $loginId
+			];
+			$this->db->insert('user_info',$data);
+
 			$this->session->set_flashdata('success', 'Registration Successful');
 			redirect(base_url('register'));
 		}

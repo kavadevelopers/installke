@@ -84,6 +84,12 @@ function get_user(){
     return $ci->db->get_where('user',['id' => $ci->session->userdata('id')])->row_array();	
 }
 
+function get_plan($id){
+    $ci=& get_instance();
+    $ci->load->database();
+    return $ci->db->get_where('plans',['id' => $id])->row_array();  
+}
+
 function menu($seg,$array)
 {
     $CI =& get_instance();

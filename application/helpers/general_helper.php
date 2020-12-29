@@ -90,6 +90,40 @@ function getSlider()
     return $ci->db->get_where('sliders')->result_array();
 }
 
+function getPopup()
+{
+    $ci=& get_instance();
+    return $ci->db->get_where('popup',['id' => '1'])->row_array();
+}
+
+function getUser()
+{
+    $ci=& get_instance();
+    return $ci->db->get_where('login',['id' => $ci->session->userdata('loginId')])->row_array();
+}
+
+function getBank()
+{
+    $ci=& get_instance();
+    return $ci->db->get_where('user_info',['user' => $ci->session->userdata('loginId')])->row_array();
+}
+
+function getSuperiorMobile($code)
+{
+    $ci=& get_instance();
+    $acc = $ci->db->get_where('login',['usercode' => $code])->row_array();
+    if($acc){
+        return replaceMobileStar($acc['mobile']);        
+    }else{
+        return "N/A";
+    }
+}
+
+function replaceMobileStar($str)
+{
+    return substr($str, 0, 3).'***'.substr($str, 6, 4);
+}
+
 function createReferalNum()
 {
     $ci=& get_instance();

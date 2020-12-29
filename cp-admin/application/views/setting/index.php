@@ -29,6 +29,13 @@
                             <?= form_error('recatcha_key') ?>
                         </div>
                     </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Tawk To Link <span class="-req">*</span></label>
+                            <input name="talktolink" type="text" class="form-control" value="<?= set_value('talktolink',get_setting()['talktolink']); ?>" >
+                            <?= form_error('talktolink') ?>
+                        </div>
+                    </div> 
                 </div>
             </div>
             <div class="card-footer text-right">

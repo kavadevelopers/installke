@@ -19,18 +19,20 @@
         <?= preLoader(); ?>
         <div id="page">
             <div class="header header-auto-show header-fixed header-logo-center">
-                <a href="index.html" class="header-title"><?= get_setting()['name'] ?></a>
+                <a href="index.html" class="header-title">
+                    <img src="<?= base_url('assets/images/logo.png') ?>" style="width: 70%;">
+                </a>
                 <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
                 <!-- <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-dark"><i class="fas fa-sun"></i></a>
                 <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a>
                 <a href="#" data-menu="menu-share" class="header-icon header-icon-3"><i class="fas fa-share-alt"></i></a> -->
-                <a href="https://tawk.to/chat/5fe59df6a8a254155ab63c90/1eqcf23d3" target="_blank" class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-comments"></i></a>
+                <a href="<?= get_setting()['talktolink'] ?>" target="_blank" class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-comments"></i></a>
             </div>
             <div id="footer-bar" class="footer-bar-6">
                 <a href="<?= base_url('dashboard') ?>" class="<?= $this->uri->segment(1) == "dashboard"?'active-nav':'' ?>">
                     <i class="fa fa-home"></i><span>Home</span>
                 </a>
-                <a href="#" class="<?= $this->uri->segment(1) == "task"?'active-nav':'' ?>">
+                <a href="<?= base_url('task') ?>" class="<?= $this->uri->segment(1) == "task"?'active-nav':'' ?>">
                     <i class="fa fa-tasks"></i><span>Tasks</span>
                 </a>
                 <a href="#" class="circle-nav <?= $this->uri->segment(1) == ""?'active-nav':'' ?>">
@@ -39,16 +41,16 @@
                 <a href="#">
                     <i class="fa fa-file-text"></i><span>Record</span>
                 </a>
-                <a href="#">
+                <a href="<?= base_url('profile') ?>" class="<?= $this->uri->segment(1) == "profile"?'active-nav':'' ?>">
                     <i class="fa fa-user"></i><span>Profile</span>
                 </a>
             </div>
             <div class="page-title page-title-fixed">
-                <h1><?= get_setting()['name'] ?></h1>
+                <h1><img src="<?= base_url('assets/images/logo.png') ?>" style="width: 50%;"></h1>
                 <!-- <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-share"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i></a>
                 <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a> -->
-                <a href="https://tawk.to/chat/5fe59df6a8a254155ab63c90/1eqcf23d3" target="_blank" class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-comments"></i></a>
+                <a href="<?= get_setting()['talktolink'] ?>" target="_blank" class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-comments"></i></a>
                 <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
             </div>
             <div class="page-title-clear"></div>

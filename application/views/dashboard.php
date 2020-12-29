@@ -94,7 +94,16 @@
         <h2>Mission Hall</h2>
     </div>
 </div>
-
+<div class="card card-style bg-blue-light mb-1" data-card-height="120" style="height: 120px;">
+    <div class="card-top pt-3 pl-3 ml-2 mt-2">
+        <h1 class="color-white font-30">Facebook</h1>
+        <h4 class="color-white opacity-50">like, subscribe, comment</h4>
+    </div>
+    <div class="card-top">
+        <a href="#" class="icon icon-xl bg-white color-blue-light float-right mt-4 mr-3 rounded-m"><i class="fa fa-facebook font-24"></i></a>
+    </div>
+    <div class="card-overlay bg-black opacity-30"></div>
+</div>
 <div class="card card-style gradient-red mb-1" data-card-height="120" style="height: 120px;">
     <div class="card-top pt-3 pl-3 ml-2 mt-2">
         <h1 class="color-white font-30">Instagram</h1>
@@ -104,6 +113,12 @@
         <a href="#" class="icon icon-xl bg-white color-red-dark float-right mt-4 mr-3 rounded-m"><i class="fa fa-instagram font-24"></i></a>
     </div>
     <div class="card-overlay bg-black opacity-30"></div>
+    <div class="to-be-unlock-container">
+        <div class="col-12">
+            <p class="icon-to-be-uplock"><i class="fa fa-lock"></i></p>
+            <p class="p-to-be-uplock">To be unlock</p>            
+        </div>
+    </div>
 </div>
 
 <div class="card card-style bg-teal-light mb-1" data-card-height="120" style="height: 120px;">
@@ -140,22 +155,7 @@
     </div>
 </div>
 
-<div class="card card-style bg-blue-light mb-1" data-card-height="120" style="height: 120px;">
-    <div class="card-top pt-3 pl-3 ml-2 mt-2">
-        <h1 class="color-white font-30">Facebook</h1>
-        <h4 class="color-white opacity-50">comment, like, share</h4>
-    </div>
-    <div class="card-top">
-        <a href="#" class="icon icon-xl bg-white color-blue-light float-right mt-4 mr-3 rounded-m"><i class="fa fa-facebook font-24"></i></a>
-    </div>
-    <div class="card-overlay bg-black opacity-30"></div>
-    <div class="to-be-unlock-container">
-        <div class="col-12">
-            <p class="icon-to-be-uplock"><i class="fa fa-lock"></i></p>
-            <p class="p-to-be-uplock">To be unlock</p>            
-        </div>
-    </div>
-</div>
+
 
 
 <div class="card-style mt-3 mb-1" style="box-shadow: none;">
@@ -208,3 +208,5 @@
         </div>
     </a>
 </div>
+
+

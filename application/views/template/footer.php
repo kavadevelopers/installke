@@ -1,4 +1,22 @@
 			</div>
+            <?php if($this->session->userdata('isDashboard') == "false" && getPopup()['enable'] == "1"){ ?>
+                <div id="" class="menu menu-box-modal rounded-m" data-auto-activate="0" data-menu-width="350">
+                    <div class="content">
+                        <h1><?= getPopup()['title'] ?></h1>
+                        <p>
+                           <?= nl2br(getPopup()['msg']) ?>
+                        </p>
+                        <div class="row mb-0 mt-4 pt-1 mb-4">
+                            <div class="col-6">
+                                <a href="#" class="close-menu btn btn-full rounded-s btn-border color-highlight border-highlight btn-m font-600">Close</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="<?= getPopup()['link'] != ""?getPopup()['link']:'#'; ?>" class="<?= getPopup()['link'] == ""?'close-menu':'#'; ?> btn btn-full rounded-s gradient-highlight btn-m font-600 scale-box border-0">Okay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
 			<div id="menu-main" class="menu menu-box-left rounded-0" data-menu-width="280" data-menu-active="nav-welcome">
                 <div class="card rounded-0 bg-6" style="height:150px">
                     <div class="card-top">

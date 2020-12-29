@@ -36,4 +36,8 @@
 	    margin-top: 20px;
 	    margin-bottom: 2px;
 	}
+
+	.d-block-k{
+		display: block;
+	}
 </style>

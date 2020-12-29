@@ -14,6 +14,30 @@ class Cms extends CI_Controller
 		$this->load->theme('cms/slider',$data);
 	}
 
+	public function popup()
+	{
+		$data['_title']		= "Popup";
+		$data['single']	= $this->db->get_where('popup',['id' => '1'])->row_array();
+		$this->load->theme('cms/popup',$data);
+	}
+
+	public function update_popup()
+	{
+		$enable = 0;
+		if($this->input->post('enable')){
+			$enable = 1;
+		}
+		$data = [
+			'title'	=> $this->input->post('title'),
+			'msg'	=> $this->input->post('msg'),
+			'link'	=> $this->input->post('link'),
+			'enable'	=> $enable
+		];
+		$this->db->where('id','1')->update('popup',$data);
+		$this->session->set_flashdata('msg', 'Popup Updated');
+		redirect(base_url('cms/popup'));
+	}
+
 	public function delete_slider($id)
 	{
 		$this->db->where('id',$id)->delete('sliders');

@@ -23,6 +23,7 @@ class Login extends CI_Controller
 			if($user['pass'] == $this->input->post('pass')){
 				if($user['blocked'] == ''){
 					$this->session->set_userdata(array('loginId' => $user['id']));
+					$this->session->set_userdata(array('isDashboard' => "false"));
 					retJson(array(0,''));
 				}else{
 					retJson(array(1,'Your Account is blocked please contact administrator'));
