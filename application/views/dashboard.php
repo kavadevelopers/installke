@@ -165,10 +165,10 @@
 </div>
 
 <div class="row mb-0">
-    <a href="#" class="col-4 pr-1 pl-3">
+    <a href="#" class="col-4 pr-1 pl-3 mt-4">
         <div class="card mr-0 card-style">
             <div class="d-flex pt-2 pb-1">
-                
+                <img src="<?= base_url('assets/images/ranking/03.png') ?>" style="width: 100%;">
             </div>
             <p class="px-3 mb-0 text-center color-black">
                 123****123
@@ -182,7 +182,7 @@
     <a href="#" class="col-4 pl-1 pr-1">
         <div class="card ml-0 mr-0 card-style">
             <div class="d-flex pt-2 pb-1">
-                <!-- <img src="<?= base_url('assets/images/ranking/1.png') ?>"> -->
+                <img src="<?= base_url('assets/images/ranking/01.png') ?>" style="width: 100%;">
             </div>
             <p class="px-3 mb-0 text-center color-black">
                 989****898
@@ -193,10 +193,10 @@
             </p>
         </div>
     </a>
-    <a href="#" class="col-4 pl-1 pr-3">
+    <a href="#" class="col-4 pl-1 pr-3 mt-4">
         <div class="card ml-0 card-style">
             <div class="d-flex pt-2 pb-1">
-                
+                <img src="<?= base_url('assets/images/ranking/02.png') ?>" style="width: 100%;">
             </div>
             <p class="px-3 color-black mb-0 text-center">
                 123****123
