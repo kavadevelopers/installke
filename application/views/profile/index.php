@@ -22,7 +22,7 @@
             <div class="col-7 pl-1">
                 <div class="mx-0 mb-2 p-3">
                     <h6 class="font-18"><?= getPlan(getUser()['plan'])['name'] ?></h6>
-                    <h3 class="mb-0">Expire on : <?= getPretyDate(getUser()['expireon']) ?></h3>
+                    <h6 class="mb-0">Expire on : <?= getPretyDate(getUser()['expireon']) ?></h6>
                 </div>
             </div>
         </div>
