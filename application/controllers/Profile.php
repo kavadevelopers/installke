@@ -13,6 +13,12 @@ class Profile extends CI_Controller
 		$this->load->theme('profile/personal_info',$data);	
 	}
 
+	public function member_profile()
+	{
+		$data['_title']		= "Member Profile";
+		$this->load->theme('profile/member_profile',$data);	
+	}
+
 	public function index()
 	{
 		$data['_title']		= "Profile";
@@ -43,6 +49,32 @@ class Profile extends CI_Controller
 		$data['_title']		= "Message Center";
 		$data['list']		= $this->db->order_by('id','desc')->limit(50)->get_where('messages')->result_array();
 		$this->load->theme('profile/message_center',$data);
+	}
+
+	public function deposit()
+	{
+		$data['_title']		= "Deposit";
+		$this->load->theme('profile/deposit',$data);
+	}
+
+	public function withdraw()
+	{
+		$data['_title']		= "Withdraw";
+		$this->load->theme('profile/withdraw',$data);
+	}
+
+	public function deposit_records()
+	{
+		$data['_title']		= "Deposit Records";
+		$data['list']		= $this->db->order_by('id','desc')->get_where('deposit',['date >=' => getMinusDate(7)])->result_array();
+		$this->load->theme('profile/deposit_records',$data);
+	}
+
+	public function withdraw_records()
+	{
+		$data['_title']		= "Withdraw Records";
+		$data['list']		= $this->db->order_by('id','desc')->get_where('withdraw',['date >=' => getMinusDate(7)])->result_array();
+		$this->load->theme('profile/withdraw_records',$data);
 	}
 
 	public function page($id)
@@ -84,4 +116,56 @@ class Profile extends CI_Controller
 	}
 
 	
+	public function save_deposit()
+	{
+		$data = [
+			'user'		=> $this->session->userdata('loginId'),
+			'amount'	=> $this->input->post('amount'),
+			'date'		=> date('Y-m-d'),
+			'status'	=> 'success'
+		];
+		$this->db->insert('deposit',$data);
+		$deposit = $this->db->insert_id();
+
+		$data = [
+			'user'		=> $this->session->userdata('loginId'),
+			'type'		=> 'deposit',
+			'credit'	=> $this->input->post('amount'),
+			'debit'		=> "0.00",
+			'main'		=> $deposit,
+			'date'		=> date('Y-m-d')
+		];
+		$this->db->insert('transactions',$data);
+
+		$balance = getUser()['wallet'] + $this->input->post('amount');
+		$this->db->where('id',getUser()['id'])->update('login',['wallet' => $balance]);
+
+		$this->session->set_flashdata('success', 'Deposit Successful. Amount '.$this->input->post('amount').' Credited to your wallet.');
+		redirect(base_url('profile/deposit'));
+	}
+
+	public function save_withdraw()
+	{
+		$data = [
+			'user'		=> $this->session->userdata('loginId'),
+			'amount'	=> $this->input->post('amount'),
+			'date'		=> date('Y-m-d'),
+			'status'	=> 'pending'
+		];
+		$this->db->insert('withdraw',$data);
+		$withdraw = $this->db->insert_id();
+
+		$data = [
+			'user'		=> $this->session->userdata('loginId'),
+			'type'		=> 'withdraw',
+			'debit'		=> $this->input->post('amount'),
+			'credit'	=> "0.00",
+			'main'		=> $withdraw,
+			'date'		=> date('Y-m-d')
+		];
+		$this->db->insert('transactions',$data);
+
+		$this->session->set_flashdata('success', 'Withdraw Successfully sent.');
+		redirect(base_url('profile/withdraw'));
+	}
 }

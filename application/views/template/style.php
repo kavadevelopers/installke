@@ -40,4 +40,27 @@
 	.d-block-k{
 		display: block;
 	}
+	.table-k th{
+		padding: 1px;
+		text-align: center;
+		line-height: 1;
+		font-size: 12px;
+		background: #ccc;
+		font-weight: bold;
+	}
+	.table-k td{
+		padding: 2px;
+		text-align: center;
+		line-height: 1;
+		font-size: 12px;
+	}
+	.withdraw-amount-select-btn,.withdraw-amount-select-btn:focus,.withdraw-amount-select-btn:hover{
+		background: #ccc;
+		color: #000;
+	}
+	.withdraw-amount-select-btn-selected,.withdraw-amount-select-btn-selected:hover,.withdraw-amount-select-btn-selected:focus{
+		background: #ffcaca;
+	    border: solid 1px #c20303;
+	    color: #c20303;
+	}
 </style>

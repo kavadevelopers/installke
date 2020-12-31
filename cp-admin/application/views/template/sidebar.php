@@ -42,6 +42,48 @@
                     </li>
                 </ul>
                 <ul class="pcoded-item pcoded-left-item">
+                    <li class="<?= menu(1,["deposit"])[0]; ?>">
+                        <a href="<?= base_url('deposit') ?>">
+                            <span class="pcoded-micon"><i class="fa fa-upload"></i></span>
+                            <span class="pcoded-mtext">Deposit</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pcoded-item pcoded-left-item">
+                    <li class="pcoded-hasmenu <?= menu(1,["withdraw"])[2]; ?>">
+                        <a href="javascript:void(0)">
+                            <span class="pcoded-micon"><i class="fa fa-download"></i></span>
+                            <span class="pcoded-mtext">Withdraw</span>
+                        </a>   
+                        <ul class="pcoded-submenu">
+                            <li class="<?= menu(2,["pending"])[0]; ?>">
+                                <a href="<?= base_url('withdraw/pending') ?>">
+                                    <span class="pcoded-micon"><i class="fa fa-list"></i></span>
+                                    <span class="pcoded-mtext">Pending</span>
+                                </a>
+                            </li>
+                            <li class="<?= menu(2,["approve"])[0]; ?>">
+                                <a href="<?= base_url('withdraw/approve') ?>">
+                                    <span class="pcoded-micon"><i class="fa fa-list"></i></span>
+                                    <span class="pcoded-mtext">Approved</span>
+                                </a>
+                            </li>
+                            <li class="<?= menu(2,["success"])[0]; ?>">
+                                <a href="<?= base_url('withdraw/success') ?>">
+                                    <span class="pcoded-micon"><i class="fa fa-list"></i></span>
+                                    <span class="pcoded-mtext">Success</span>
+                                </a>
+                            </li>
+                            <li class="<?= menu(2,["reject"])[0]; ?>">
+                                <a href="<?= base_url('withdraw/reject') ?>">
+                                    <span class="pcoded-micon"><i class="fa fa-list"></i></span>
+                                    <span class="pcoded-mtext">Rejected</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="pcoded-item pcoded-left-item">
                     <li class="<?= menu(1,["setting"])[0]; ?>">
                         <a href="<?= base_url('setting') ?>">
                             <span class="pcoded-micon"><i class="fa fa-gear fa-spin"></i></span>

@@ -32,6 +32,11 @@ function getYesterday()
     return date('Y-m-d',strtotime("-1 day",strtotime(date('Y-m-d'))));
 }
 
+function getMinusDate($days)
+{
+    return date('Y-m-d',strtotime("-".$days." day",strtotime(date('Y-m-d'))));
+}
+
 function getTommorrow()
 {
     return date('Y-m-d',strtotime("+1 day",strtotime(date('Y-m-d'))));
@@ -150,6 +155,11 @@ function createReferalNum()
     }else{
         return $ran.'1';
     }
+}
+
+function pretyAmount($amount)
+{
+    return rs().number_format($amount,2);
 }
 
 ?>

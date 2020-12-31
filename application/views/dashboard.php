@@ -1,6 +1,6 @@
 <div class="row mb-0">
     <a href="#" class="col-6 pr-1 pl-3">
-        <div class="card mr-0 card-style">
+        <div class="card mr-0 card-style mb-2">
             <div class="d-flex pt-2 pb-1">
                 <div class="align-self-center">
                     <h5 class="pl-2 ml-1 mb-0">0</h5>
@@ -12,7 +12,7 @@
         </div>
     </a>
     <a href="#" class="col-6 pl-1 pr-3">
-        <div class="card ml-0 card-style">
+        <div class="card ml-0 card-style mb-2">
             <div class="d-flex pt-2 pb-1">
                 <div class="align-self-center">
                     <h5 class="pl-2 ml-1 mb-0">4</h5>
@@ -26,7 +26,7 @@
 </div>
 
 <a href="<?= base_url('profile/invite') ?>">
-    <div class="card card-style bg-primary-k">
+    <div class="card card-style bg-primary-k mb-2">
         <div class="d-flex pt-3 mt-1 mb-2 pb-2">
             <div class="align-self-center">
                 <i class="color-icon-gray color-white font-30 icon-40 text-center fa fa-users ml-3"></i>
@@ -41,12 +41,40 @@
 
 <div class="single-slider owl-carousel owl-no-dots mb-0">
     <?php foreach (getSlider() as $key => $value) { ?>
-        <a href="<?= $value['link'] ?>" class="card card-style" data-card-height="150" style="background-image: url(<?= base_url(get_setting()['admin_folder'].'/uploads/banner/').$value['image'] ?>);">
+        <a href="<?= $value['link'] ?>" class="card card-style mb-2" data-card-height="150" style="background-image: url(<?= base_url(get_setting()['admin_folder'].'/uploads/banner/').$value['image'] ?>);">
         </a>    
     <?php } ?>
 </div>
 
-<div class="card card-style mt-1">
+
+<div class="row mb-0">
+    <a href="<?= base_url('profile/tutorial') ?>" class="col-6 pr-1 pl-3">
+        <div class="card card-style bg-blue-light mr-0 mb-1">
+            <div class="d-flex pt-3 mt-1 mb-2 pb-2">
+                <div class="align-self-center">
+                    <i class="color-icon-gray color-white font-30 icon-40 text-center fa fa-play ml-3"></i>
+                </div>
+                <div class="align-self-center">
+                    <h4 class="show-on-theme-light color-white pl-2 ml-1 mb-0 ">Tutorials</h4>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="<?= base_url('profile/member_profile') ?>" class="col-6 pl-1 pr-3">
+        <div class="card card-style bg-orange-light ml-0 mb-1">
+            <div class="d-flex pt-3 mt-1 mb-2 pb-2">
+                <div class="align-self-center">
+                    <i class="color-icon-gray color-white font-30 icon-40 text-center fa fa-money ml-3"></i>
+                </div>
+                <div class="align-self-center">
+                    <h4 class="show-on-theme-light color-white pl-2 ml-1 mb-0 ">Profit Info</h4>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="card card-style mt-1 mb-2">
     <div class="content">
         <h5 class="font-14 opacity-50">Total Profit <?= rs() ?>1200</h5>
         <div class="divider mb-3"></div>
