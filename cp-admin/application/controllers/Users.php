@@ -32,5 +32,15 @@ class Users extends CI_Controller
 		$this->session->set_flashdata('msg', 'User Status Changed');
 		redirect(base_url('users'));
 	}
+
+	public function update_wallet()
+	{
+		$data = [
+			'wallet' => $this->input->post('wallet')
+		];
+		$this->db->where('id',$this->input->post('id'))->update('login',$data);
+		$this->session->set_flashdata('msg', 'Wallet Updated');
+		redirect(base_url('users'));
+	}
 }
 ?>

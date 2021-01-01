@@ -21,6 +21,7 @@
                                 <th class="text-center">Mobile</th>
                                 <th class="text-right">Amount</th>
                                 <th class="text-center">Date</th>
+                                <th>Bank Details</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -30,6 +31,13 @@
                                     <td class="text-center"><?= getCustomer($value['user'])['mobile'] ?></td>
                                     <td class="text-right"><?= rs().$value['amount'] ?></td>
                                     <td class="text-center"><?= vd($value['date']) ?></td>
+                                    <td>
+                                        <b>Name : </b><?= getCustomerInfo($value['user'])['name'] ?><br>
+                                        <b>Bank : </b><?= getCustomerInfo($value['user'])['bank'] ?><br>
+                                        <b>Ac No. : </b><?= getCustomerInfo($value['user'])['acc_no'] ?><br>
+                                        <b>IFSC : </b><?= getCustomerInfo($value['user'])['ifsc'] ?><br>
+                                        <b>PAYTM : </b><?= getCustomerInfo($value['user'])['paytm'] ?>
+                                    </td>
                                     <td class="text-center">
                                         <a href="<?= base_url('withdraw/successed/').$value['id'] ?>" class="btn btn-success btn-mini">
                                             Success

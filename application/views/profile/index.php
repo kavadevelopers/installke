@@ -110,7 +110,7 @@
                 </div>
             </div>
         </a>
-        <a class="col-4 pl-0 pr-0">
+        <a href="<?= base_url('profile/member_profile') ?>" class="col-4 pl-0 pr-0">
             <div class="card card-style mb-2">
                 <div class="content mb-0">
                     <div class="row justify-content-center mb-1">
