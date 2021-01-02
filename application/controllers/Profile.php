@@ -28,7 +28,7 @@ class Profile extends CI_Controller
 	public function profit()
 	{
 		$data['_title']		= "Profit";
-		$data['list']		= $this->db->order_by('id','desc')->where_in('type',['mission','member_comission'])->where('user',$this->session->userdata('loginId'))->get('transactions')->result_array();
+		$data['list']		= $this->db->order_by('id','desc')->where_in('type',['mission','member_comission','promo'])->where('user',$this->session->userdata('loginId'))->get('transactions')->result_array();
 		$this->load->theme('profile/profit',$data);
 	}
 
@@ -49,6 +49,13 @@ class Profile extends CI_Controller
 		$data['_title']		= "Tutorials";
 		$data['list']		= $this->db->order_by('title','asc')->get_where('tutorials')->result_array();
 		$this->load->theme('profile/tutorials',$data);
+	}
+
+	public function purchase_history()
+	{
+		$data['_title']		= "Plan purchase history";
+		$data['list']		= $this->db->order_by('id','desc')->get_where('plan_sub',['user' => $this->session->userdata('loginId')])->result_array();
+		$this->load->theme('profile/purchase_history',$data);
 	}
 
 	public function message_center()
@@ -113,6 +120,8 @@ class Profile extends CI_Controller
 		if(count($thirddAr) == 0){ $thirddAr = ['-']; }
 		$data['third']	= $this->db->order_by('id','desc')->where_in('invitation',$thirddAr)->get('login')->result_array();
 
+		$data['team_count'] = count($data['first']) + count($data['secound']) + count($data['third']);
+		$data['new_member']	= $this->db->get_where('login',['invitation' => getUser()['usercode'],'DATE(created_at)' => date('Y-m-d')])->num_rows();
 		$this->load->theme('profile/team',$data);
 	}
 
@@ -145,39 +154,35 @@ class Profile extends CI_Controller
 	
 	public function save_deposit()
 	{
-		// $data = [
-		// 	'user'		=> $this->session->userdata('loginId'),
-		// 	'amount'	=> $this->input->post('amount'),
-		// 	'date'		=> date('Y-m-d'),
-		// 	'status'	=> 'success',
-		// 	'name'		=> $this->input->post('name'),
-		// 	'mobile'	=> $this->input->post('mobile'),
-		// 	'email'		=> $this->input->post('email'),
-		// 	'address'	=> $this->input->post('address')
-		// ];
-		// $this->db->insert('deposit',$data);
-		//$deposit = $this->db->insert_id();
-		$deposit = "1";
-		$depo = $this->db->get_where('deposit',['id' => "5"])->row_array();
+		$data = [
+			'user'		=> $this->session->userdata('loginId'),
+			'amount'	=> $this->input->post('amount'),
+			'date'		=> date('Y-m-d'),
+			'status'	=> 'success',
+			'name'		=> "",
+			'mobile'	=> "",
+			'email'		=> "",
+			'address'	=> ""
+		];
+		$this->db->insert('deposit',$data);
+		$deposit = $this->db->insert_id();
+		$depo = $this->db->get_where('deposit',['id' => $deposit])->row_array();
 		$amount =  $depo['amount'];
-	    $product_info = "productinfo";
-	    $customer_name = $depo['name'];
-	    $customer_emial = $depo['email'];
-	    $customer_mobile = $depo['mobile'];
-	    $customer_address = $depo['address'];
-
-
+	    $product_info = $deposit;
+	    $customer_name = "";
+	    $customer_emial = "";
+	    $customer_mobile = "";
+	    $customer_address = "";
 	    $MERCHANT_KEY 	= get_setting()['pay_merchant'];
 	    $SALT 			= get_setting()['pay_salt'];
-
 	    $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-        $udf1 = $deposit;
+        $udf1 = "";
         $udf2 = '';
         $udf3 = '';
         $udf4 = '';
         $udf5 = '';
-        $hashstring = $MERCHANT_KEY . '|' . $txnid . '|' . $amount . '|' . $product_info . '|' . $customer_name . '|' . $customer_emial . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '|' . $SALT;
-	    $hash = hash('sha512', $hashstring);
+        $hashstring = $MERCHANT_KEY . '|' . $txnid . '|' . $amount . '|' . $product_info . '|' . $customer_name . '|' . $customer_emial . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '||||||' . $SALT;
+	    $hash = strtolower(hash('sha512', $hashstring));
 
 
 	    $success 	= base_url('profile/payyoumoneystatus');  
@@ -201,25 +206,9 @@ class Profile extends CI_Controller
         );
 
         $this->load->theme('profile/deposit_confirmation',$data);
-
-		// exit;
-
-		// $data = [
-		// 	'user'		=> $this->session->userdata('loginId'),
-		// 	'type'		=> 'deposit',
-		// 	'credit'	=> $this->input->post('amount'),
-		// 	'debit'		=> "0.00",
-		// 	'main'		=> $deposit,
-		// 	'date'		=> date('Y-m-d')
-		// ];
-		// $this->db->insert('transactions',$data);
-
-		// $balance = getUser()['wallet'] + $this->input->post('amount');
-		// $this->db->where('id',getUser()['id'])->update('login',['wallet' => $balance]);
-
-		// $this->session->set_flashdata('success', 'Deposit Successful. Amount '.$this->input->post('amount').' Credited to your wallet.');
-		// redirect(base_url('profile/deposit'));
 	}
+
+	
 
 	public function save_withdraw()
 	{
@@ -247,5 +236,49 @@ class Profile extends CI_Controller
 
 		$this->session->set_flashdata('success', 'Withdraw Successfully sent.');
 		redirect(base_url('profile/withdraw'));
+	}
+
+	public function payyoumoneystatus()
+	{
+		$status = $this->input->post('status');
+		if (empty($status)) {
+            redirect('Welcome');
+        }
+        $firstname = $this->input->post('firstname');
+        $amount = $this->input->post('amount');
+        $txnid = $this->input->post('txnid');
+        $posted_hash = $this->input->post('hash');
+        $key = $this->input->post('key');
+        $productinfo = $this->input->post('productinfo');
+        $email 	= $this->input->post('email');
+        $salt 	= get_setting()['pay_salt'];
+        $retHashSeq = $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
+        $hash = hash("sha512", $retHashSeq);
+        if ($hash != $posted_hash) {
+        	redirect('Welcome');
+        }else{
+        	if($status == 'success'){
+        		$depo = $this->db->get_where('deposit',['id' => $productinfo])->row_array();
+        		$data = [
+					'user'		=> $depo['user'],
+					'type'		=> 'deposit',
+					'credit'	=> $depo['amount'],
+					'debit'		=> "0.00",
+					'main'		=> $productinfo,
+					'date'		=> date('Y-m-d')
+				];
+				$this->db->insert('transactions',$data);
+				$balance = get_user($depo['user'])['wallet'] + $depo['amount'];
+				$this->db->where('id',$depo['user'])->update('login',['wallet' => $balance]);
+        		redirect(base_url('profile/success_pay'),'refresh');
+        	}else{
+        		$this->load->view('payyoumoney/failed');
+        	}
+        }
+	}
+
+	public function success_pay()
+	{
+		$this->load->view('payyoumoney/success');
 	}
 }

@@ -26,7 +26,7 @@
                     <input type="hidden" name="txnid" value="<?php echo $tid; ?>" />
                     <input name="surl" value="<?php echo $sucess; ?>" size="64" type="hidden" />
                     <input name="furl" value="<?php echo $failure; ?>" size="64" type="hidden" />  
-                    <!-- <input type="hidden" name="service_provider" value="payu_paisa" size="64" /> -->
+                    <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
                     <input name="curl" value="<?php echo $cancel; ?> " type="hidden" />
                     <button type="submit" style="width: 100%;" class="btn btn-full btn-m gradient-highlight rounded-s font-13 font-600 mt-4">Confirm and Pay</button>
                 </form>

@@ -327,8 +327,36 @@ function getPercentage($amount,$perc)
 function getFirSecThir()
 {
     $ci=& get_instance();
-    $list = $ci->db->order_by('mission_comission','desc')->limit(3)->get('login')->result_array();
-    if(count($list) == 0){
+
+
+    $ci->db->distinct();
+    $ci->db->select('user');
+    $ci->db->where('type', 'mission'); 
+    $ci->db->where('date', date('Y-m-d')); 
+    $list = $ci->db->get('transactions')->result_array();
+
+    $arrList = [];
+    foreach ($list as $key => $value) {
+        $ci->db->select_sum('credit');
+        $ci->db->from('transactions');
+        $ci->db->where('user',$value['user']);
+        $ci->db->where('date',  date('Y-m-d'));
+        $ci->db->where('type','mission');
+        $credit = $ci->db->get()->row()->credit;
+        $cr = 0;
+        if($credit){
+            $cr = $credit;
+        }
+
+        $taskCount = $ci->db->get_where('transactions',['user' => $value['user'],'date' => date('Y-m-d'),'type' => 'mission'])->num_rows();
+
+        array_push($arrList, ['user' => $value['user'],'mobile' => get_user($value['user'])['mobile'],'amount' => $cr,'task' => $taskCount]);
+    }
+    array_sort_by_column($arrList,'amount');
+    // return $arrList;
+    // exit;
+    
+    if(count($arrList) == 0){
         return [
             'mob1'  => '-',
             'mob2'  => '-',
@@ -338,44 +366,52 @@ function getFirSecThir()
             'bal3'  => 0,
             'task1' => '-',
             'task2' => '-',
-            'task3' => '-',
+            'task3' => '-'
         ];
-    }else if(count($list) == 1){
+    }else if(count($arrList) == 1){
         return [
-            'mob1'  => $list[0]['mobile'],
+            'mob1'  => $arrList[0]['mobile'],
             'mob2'  => '-',
             'mob3'  => '-',
-            'bal1'  => $list[0]['mission_comission'],
+            'bal1'  => $arrList[0]['amount'],
             'bal2'  => 0,
             'bal3'  => 0,
-            'task1' => getPlan($list[0]['plan'])['task'],
+            'task1' => $arrList[0]['task'],
             'task2' => '-',
-            'task3' => '-',
+            'task3' => '-'
         ];
-    }else if(count($list) == 2){
+    }else if(count($arrList) == 2){
         return [
-            'mob1'  => $list[0]['mobile'],
-            'mob2'  => $list[1]['mobile'],
+            'mob1'  => $arrList[0]['mobile'],
+            'mob2'  => $arrList[1]['mobile'],
             'mob3'  => '-',
-            'bal1'  => $list[0]['mission_comission'],
-            'bal2'  => $list[1]['mission_comission'],
+            'bal1'  => $arrList[0]['amount'],
+            'bal2'  => $arrList[1]['amount'],
             'bal3'  => 0,
-            'task1' => getPlan($list[0]['plan'])['task'],
-            'task2' => getPlan($list[1]['plan'])['task'],
-            'task3' => '-',
+            'task1' => $arrList[0]['task'],
+            'task2' => $arrList[1]['task'],
+            'task3' => '-'
         ];
-    }else if(count($list) == 3){
+    }else if(count($arrList) == 3){
         return [
-            'mob1'  => $list[0]['mobile'],
-            'mob2'  => $list[1]['mobile'],
-            'mob3'  => $list[2]['mobile'],
-            'bal1'  => $list[0]['mission_comission'],
-            'bal2'  => $list[1]['mission_comission'],
-            'bal3'  => $list[2]['mission_comission'],
-            'task1' => getPlan($list[0]['plan'])['task'],
-            'task2' => getPlan($list[1]['plan'])['task'],
-            'task3' => getPlan($list[2]['plan'])['task'],
+            'mob1'  => $arrList[0]['mobile'],
+            'mob2'  => $arrList[1]['mobile'],
+            'mob3'  => $arrList[2]['mobile'],
+            'bal1'  => $arrList[0]['amount'],
+            'bal2'  => $arrList[1]['amount'],
+            'bal3'  => $arrList[2]['amount'],
+            'task1' => $arrList[0]['task'],
+            'task2' => $arrList[1]['task'],
+            'task3' => $arrList[2]['task']
         ];
     }
+}
+
+function array_sort_by_column(&$arr, $col, $dir = SORT_DESC) {
+    $sort_col = array();
+    foreach ($arr as $key=> $row) {
+        $sort_col[$key] = $row[$col];
+    }
+    array_multisort($sort_col, $dir, $arr);
 }
 ?>

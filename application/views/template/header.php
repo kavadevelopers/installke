@@ -24,8 +24,8 @@
                 </a>
                 <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
                 <!-- <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-dark"><i class="fas fa-sun"></i></a>
-                <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a>
-                <a href="#" data-menu="menu-share" class="header-icon header-icon-3"><i class="fas fa-share-alt"></i></a> -->
+                <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a> -->
+                <a href="<?= base_url('profile/message_center') ?>" class="header-icon header-icon-3"><i class="fa fa-bell"></i></a>
                 <a href="<?= get_setting()['talktolink'] ?>" target="_blank" class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-comments"></i></a>
             </div>
             <div id="footer-bar" class="footer-bar-6">
@@ -50,6 +50,7 @@
                 <!-- <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-share"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i></a>
                 <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a> -->
+                <a href="<?= base_url('profile/message_center') ?>" class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-bell"></i></a>
                 <a href="<?= get_setting()['talktolink'] ?>" target="_blank" class="page-title-icon shadow-xl bg-theme color-theme"><i class="fa fa-comments"></i></a>
                 <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
             </div>

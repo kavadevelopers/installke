@@ -1,5 +1,34 @@
 <div class="page-content">
-	<div class="card card-style bg-theme pb-0 m-1">
+
+	<div class="card card-style mt-n3">
+        <div class="content mb-2 mt-3">
+            <div class="d-flex">
+                <div class="pr-4 col-12 text-center">
+                    <p class="font-600 color-highlight mb-0">Team Member</p>
+                    <h1><?= $team_count ?></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mb-1 mt-n3">
+        <div class="row mb-0">
+            <div class="col-6 pr-1">
+                <div class="card card-style mx-0 mb-2 p-3">
+                    <h6 class="font-14">Direct Downline</h6>
+                    <h3 class="mb-0"><?= count($first) ?></h3>
+                </div>
+            </div>
+            <div class="col-6 pl-1">
+                <div class="card card-style mx-0 mb-2 p-3">
+                    <h6 class="font-14">New Member</h6>
+                    <h3 class="mb-0"><?= $new_member ?></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="card card-style bg-theme pb-0 m-2">
 	    <div class="content">
 	        <div class="tab-controls tabs-round tab-animated tabs-small tabs-rounded shadow-xl" data-tab-items="3" data-tab-active="bg-red-dark color-white">
 	             <a href="#" data-tab-active data-tab="tab-1">Gen 1 (<?= count($first) ?>)</a>

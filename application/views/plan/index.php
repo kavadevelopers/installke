@@ -32,13 +32,26 @@
     </div>
 
     <a href="<?= base_url('profile/member_profile') ?>">
-	    <div class="card card-style bg-orange-light mb-2">
+	    <div class="card card-style bg-pink-light mb-2">
 	        <div class="d-flex pt-3 mt-1 mb-2 pb-2">
 	            <div class="align-self-center">
 	                <i class="color-icon-gray color-white font-30 icon-40 text-center fa fa-money ml-3"></i>
 	            </div>
 	            <div class="align-self-center">
 	                <h4 class="show-on-theme-light color-white pl-2 ml-1 mb-0 ">Profit Info</h4>
+	            </div>
+	        </div>
+	    </div>
+	</a>
+
+	<a href="<?= base_url('profile/purchase_history') ?>">
+	    <div class="card card-style bg-blue-light mb-2">
+	        <div class="d-flex pt-3 mt-1 mb-2 pb-2">
+	            <div class="align-self-center">
+	                <i class="color-icon-gray color-white font-30 icon-40 text-center fa fa-history ml-3"></i>
+	            </div>
+	            <div class="align-self-center">
+	                <h4 class="show-on-theme-light color-white pl-2 ml-1 mb-0 ">Plan purchase record</h4>
 	            </div>
 	        </div>
 	    </div>

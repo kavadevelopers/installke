@@ -123,7 +123,7 @@
         <h2>Mission Hall</h2>
     </div>
 </div>
-<div class="card card-style bg-blue-light mb-1" data-card-height="120" style="height: 120px;">
+<div class="card card-style bg-blue-light mb-1" data-card-height="120" style="height: 120px;" onclick="window.location='<?= base_url('task') ?>'">
     <div class="card-top pt-3 pl-3 ml-2 mt-2">
         <h1 class="color-white font-30">Facebook</h1>
         <h4 class="color-white opacity-50">like, subscribe, comment</h4>
@@ -200,11 +200,11 @@
                 <img src="<?= base_url('assets/images/ranking/03.png') ?>" style="width: 100%;">
             </div>
             <p class="px-3 mb-0 text-center color-black">
-                <?= replaceMobileStar(getFirSecThir()['mob2']) ?>
+                <?= replaceMobileStar(getFirSecThir()['mob3']) ?>
             </p>
-            <h6 class="text-center color-primary-k mb-0"><?= pretyAmount(getFirSecThir()['bal2']) ?></h6>
+            <h6 class="text-center color-primary-k mb-0"><?= pretyAmount(getFirSecThir()['bal3']) ?></h6>
             <p class="px-3 mb-0 text-center mb-2">
-                Today task <?= getFirSecThir()['task2'] ?>
+                Today task <?= getFirSecThir()['task3'] ?>
             </p>
         </div>
     </a>
@@ -228,11 +228,11 @@
                 <img src="<?= base_url('assets/images/ranking/02.png') ?>" style="width: 100%;">
             </div>
             <p class="px-3 color-black mb-0 text-center">
-                <?= replaceMobileStar(getFirSecThir()['mob3']) ?>
+                <?= replaceMobileStar(getFirSecThir()['mob2']) ?>
             </p>
-            <h6 class="text-center color-primary-k mb-0"><?= pretyAmount(getFirSecThir()['bal3']) ?></h6>
+            <h6 class="text-center color-primary-k mb-0"><?= pretyAmount(getFirSecThir()['bal2']) ?></h6>
             <p class="px-3 mb-0 text-center mb-2">
-                Today task <?= getFirSecThir()['task3'] ?>
+                Today task <?= getFirSecThir()['task2'] ?>
             </p>
         </div>
     </a>

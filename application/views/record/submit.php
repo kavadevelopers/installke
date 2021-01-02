@@ -15,4 +15,19 @@
             </div>
         </div>
     </div>
+
+    <div class="card card-style mt-3 mb-3">
+        <div class="content">
+            <h1 class="mb-1">How It Works</h1>
+            <p class="mt-1 mb-2">
+                1. Click link to open facebook than share post take a screenshot.
+            </p>
+            <p class="mt-1 mb-2">
+                2. upload screenshot to this app.
+            </p>
+            <p class="mt-1 mb-2">
+                3. Click submit to save data.
+            </p>
+        </div>
+    </div>
 </div>

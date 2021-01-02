@@ -7,11 +7,6 @@ class Cron extends CI_Controller
 		parent::__construct();
 	}
 
-	public function check()
-	{
-		pre_print(getFirSecThir());
-	}
-
 	public function index()
 	{
 		$list = $this->db->get_where('mission_record',['status' => '1','dtime <' => getMinusTime(5)])->result_array();

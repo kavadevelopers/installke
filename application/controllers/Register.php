@@ -60,6 +60,15 @@ class Register extends CI_Controller
 			];
 			$this->db->insert('user_info',$data);
 
+			$data = [
+				'user'		=> $loginId,
+				'plan'		=> "1",
+				'days'		=> "1",
+				'amount'	=> "0.00",
+				'expire_on'	=> getPlusDate("1")
+			];
+			$this->db->insert('plan_sub',$data);
+
 			$this->session->set_flashdata('success', 'Registration Successful');
 			redirect(base_url('register'));
 		}
