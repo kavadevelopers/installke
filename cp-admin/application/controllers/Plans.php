@@ -77,11 +77,12 @@ class Plans extends CI_Controller
 	public function task_save()
 	{
 		$data = [
-			'name'					=> $this->input->post('name'),
-			'amount'				=> $this->input->post('amount'),
 			'link'					=> $this->input->post('link'),
 			'ttype'					=> $this->input->post('type'),
-			'plan'					=> $this->input->post('plan')
+			'plan'					=> $this->input->post('plan'),
+			'task_type'				=> $this->input->post('task_type'),
+			'unit'					=> $this->input->post('unit'),
+			'unit_done'				=> "0"
 		];
 		$this->db->insert('task',$data);
 
@@ -101,11 +102,12 @@ class Plans extends CI_Controller
 	public function task_update()
 	{
 		$data = [
-			'name'					=> $this->input->post('name'),
-			'amount'				=> $this->input->post('amount'),
 			'link'					=> $this->input->post('link'),
 			'ttype'					=> $this->input->post('type'),
-			'plan'					=> $this->input->post('plan')
+			'plan'					=> $this->input->post('plan'),
+			'task_type'				=> $this->input->post('task_type'),
+			'unit'					=> $this->input->post('unit'),
+			'unit_done'				=> "0"
 		];
 		$this->db->where('id',$this->input->post('id'))->update('task',$data);
 

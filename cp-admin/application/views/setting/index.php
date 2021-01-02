@@ -43,6 +43,27 @@
                             <?= form_error('invitetext') ?>
                         </div>
                     </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Pay you money MerchantKey <span class="-req">*</span></label>
+                            <input name="pay_merchant" type="text" class="form-control" value="<?= set_value('pay_merchant',get_setting()['pay_merchant']); ?>">
+                            <?= form_error('pay_merchant') ?>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Pay you money SALT <span class="-req">*</span></label>
+                            <input name="pay_salt" type="text" class="form-control" value="<?= set_value('pay_salt',get_setting()['pay_salt']); ?>">
+                            <?= form_error('pay_salt') ?>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Pay you money URL <span class="-req">*</span></label>
+                            <input name="pay_url" type="text" class="form-control" value="<?= set_value('pay_url',get_setting()['pay_url']); ?>">
+                            <?= form_error('pay_url') ?>
+                        </div>
+                    </div> 
                 </div>
             </div>
             <div class="card-footer text-right">

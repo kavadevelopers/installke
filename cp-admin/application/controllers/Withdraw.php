@@ -46,9 +46,9 @@ class Withdraw extends CI_Controller
 	{
 		$this->db->where('id',$id)->update('withdraw',['status' => 'success']);
 
-		$withdraw = $this->db->get_where('withdraw',['id' => $id])->row_array();
-		$user = $this->db->get_where('login',['id' => $withdraw['user']])->row_array();
-		$this->db->where('id',$withdraw['user'])->update('login',['wallet' => ($user['wallet'] - $withdraw['amount'])]);
+		// $withdraw = $this->db->get_where('withdraw',['id' => $id])->row_array();
+		// $user = $this->db->get_where('login',['id' => $withdraw['user']])->row_array();
+		// $this->db->where('id',$withdraw['user'])->update('login',['wallet' => ($user['wallet'] - $withdraw['amount'])]);
 
 		$this->session->set_flashdata('msg', 'Status Changed');
 	    redirect(base_url('withdraw/approve'));
@@ -57,6 +57,12 @@ class Withdraw extends CI_Controller
 	public function rejected($id,$status)
 	{
 		$this->db->where('id',$id)->update('withdraw',['status' => 'reject']);
+
+		$withdraw = $this->db->get_where('withdraw',['id' => $id])->row_array();
+		$user = $this->db->get_where('login',['id' => $withdraw['user']])->row_array();
+		$this->db->where('id',$withdraw['user'])->update('login',['wallet' => ($user['wallet'] + $withdraw['amount'])]);
+		$this->db->where('type','withdraw')->where('main',$id)->delete('transactions');
+
 		$this->session->set_flashdata('msg', 'Status Changed');
 	    redirect(base_url('withdraw/').$status);
 	}

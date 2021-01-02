@@ -63,4 +63,8 @@
 	    border: solid 1px #c20303;
 	    color: #c20303;
 	}
+	.btm-disabled-k,.btm-disabled-k:focus,.btm-disabled-k:hover{
+		background: #ccc;
+		color: #aaa;	
+	}
 </style>

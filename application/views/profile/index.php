@@ -34,13 +34,13 @@
             <div class="d-flex">
                 <div class="pr-4 col-12 text-center">
                     <p class="font-600 color-highlight mb-0">Your Balance</p>
-                    <h1><?= rs() ?> <?= getUser()['wallet'] ?></h1>
+                    <h1><?= pretyAmount(getUser()['wallet']) ?></h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card card-style mt-n3">
+    <!-- <div class="card card-style mt-n3">
         <div class="content mb-2 mt-3">
             <div class="d-flex">
                 <div class="pr-4 col-12 text-center">
@@ -49,20 +49,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="content mb-1 mt-n3">
         <div class="row mb-0">
             <div class="col-6 pr-1">
                 <div class="card card-style mx-0 mb-2 p-3">
                     <h6 class="font-14">Member Comission</h6>
-                    <h3 class="mb-0"><?= rs() ?> <?= getUser()['member_comission'] ?></h3>
+                    <h3 class="mb-0"><?= pretyAmount(getMemberComission()) ?></h3>
                 </div>
             </div>
             <div class="col-6 pl-1">
                 <div class="card card-style mx-0 mb-2 p-3">
                     <h6 class="font-14">Mission Comission</h6>
-                    <h3 class="mb-0"><?= rs() ?> <?= getUser()['mission_comission'] ?></h3>
+                    <h3 class="mb-0"><?= pretyAmount(getMissionComission()) ?></h3>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </a>
-        <a class="col-4 pl-0 pr-0">
+        <a href="<?= base_url('profile/team') ?>" class="col-4 pl-0 pr-0">
             <div class="card card-style mb-2">
                 <div class="content mb-0">
                     <div class="row justify-content-center mb-1">
@@ -110,7 +110,7 @@
                 </div>
             </div>
         </a>
-        <a href="<?= base_url('profile/member_profile') ?>" class="col-4 pl-0 pr-0">
+        <a href="<?= base_url('profile/profit') ?>" class="col-4 pl-0 pr-0">
             <div class="card card-style mb-2">
                 <div class="content mb-0">
                     <div class="row justify-content-center mb-1">

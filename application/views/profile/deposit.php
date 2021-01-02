@@ -18,8 +18,23 @@
                     </div>
                     <div class="input-style input-style-2 mb-3 pb-1">
                         <span class="input-style-1-active">Amount To Deposit</span>
-                        <input type="text" placeholder="Amount To Deposit" id="depositAmount" name="amount" class="decimal-num" value="" required>
-
+                        <input type="text" placeholder="Amount To Deposit" id="depositAmount" autocomplete="off" name="amount" class="decimal-num" value="" required>
+                    </div>
+                    <div class="input-style input-style-2 mb-3 pb-1">
+                        <span class="input-style-1-active">Name</span>
+                        <input type="text" placeholder="Name" name="name" class="" value="" required>
+                    </div>
+                    <div class="input-style input-style-2 mb-3 pb-1">
+                        <span class="input-style-1-active">Mobile</span>
+                        <input type="text" placeholder="Mobile" name="mobile" class="numbers" maxlength="10" minlength="10" value="" required>
+                    </div>
+                    <div class="input-style input-style-2 mb-3 pb-1">
+                        <span class="input-style-1-active">Email</span>
+                        <input type="email" placeholder="Email" name="email" class="" value="" required>
+                    </div>
+                    <div class="input-style input-style-2 mb-3 pb-1">
+                        <span class="input-style-1-active">Address</span>
+                        <input type="text" placeholder="Address" name="address" class="" value="" required>
                     </div>
                     <button type="submit" style="width: 100%;" class="btn btn-full btn-m gradient-highlight rounded-s font-13 font-600 mt-4">Next</button>
                 </form>

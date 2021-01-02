@@ -17,21 +17,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <form method="post" action="<?= base_url('plans/task_save') ?>" enctype="multipart/form-data">
-                        <div class="card-block">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Name <span class="-req">*</span></label>
-                                    <input name="name" type="text" class="form-control" value="<?= set_value('name'); ?>" placeholder="Name" required>
-                                    <?= form_error('name') ?>
-                                </div>
-                            </div>        
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Amount <span class="-req">*</span></label>
-                                    <input name="amount" type="text" class="form-control decimal-num" value="<?= set_value('amount'); ?>" placeholder="Amount" required>
-                                    <?= form_error('amount') ?>
-                                </div>
-                            </div> 
+                        <div class="card-block">  
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Link <span class="-req">*</span></label>
@@ -60,6 +46,20 @@
                                     <?= form_error('type') ?>
                                 </div>
                             </div> 
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Task Type <span class="-req">*</span></label>
+                                    <input name="task_type" type="text" class="form-control" value="<?= set_value('task_type'); ?>" placeholder="Task Type" required>
+                                    <?= form_error('task_type') ?>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Unit <span class="-req">*</span></label>
+                                    <input name="unit" type="text" class="form-control numbers" value="<?= set_value('unit'); ?>" placeholder="Unit" required>
+                                    <?= form_error('unit') ?>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-success">
@@ -74,20 +74,6 @@
                 <div class="card">
                     <form method="post" action="<?= base_url('plans/task_update') ?>" enctype="multipart/form-data">
                         <div class="card-block">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Name <span class="-req">*</span></label>
-                                    <input name="name" type="text" class="form-control" value="<?= set_value('name',$single['name']); ?>" placeholder="Name" required>
-                                    <?= form_error('name') ?>
-                                </div>
-                            </div>        
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Amount <span class="-req">*</span></label>
-                                    <input name="amount" type="text" class="form-control decimal-num" value="<?= set_value('amount',$single['amount']); ?>" placeholder="Amount" required>
-                                    <?= form_error('amount') ?>
-                                </div>
-                            </div> 
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Link <span class="-req">*</span></label>
@@ -116,6 +102,20 @@
                                     <?= form_error('type') ?>
                                 </div>
                             </div> 
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Task Type <span class="-req">*</span></label>
+                                    <input name="task_type" type="text" class="form-control" value="<?= set_value('task_type',$single['task_type']); ?>" placeholder="Task Type" required>
+                                    <?= form_error('task_type') ?>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Unit <span class="-req">*</span></label>
+                                    <input name="unit" type="text" class="form-control numbers" value="<?= set_value('unit',$single['unit']); ?>" placeholder="Unit" required>
+                                    <?= form_error('unit') ?>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <a href="<?= base_url('plans/task') ?>" class="btn btn-danger">
@@ -138,29 +138,27 @@
                     <table class="table table-striped table-bordered table-mini table-dt">
                         <thead>
                             <tr>
-                                <th class="text-center">Name</th>
-                                <th class="text-right">Amount</th>
                                 <th class="">Link</th>
                                 <th class="text-center">Type</th>
                                 <th class="text-center">Plan</th>
+                                <th class="text-center">Unit</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($list as $key => $value) { ?>
                                 <tr>
-                                    <td class="text-center"><?= $value['name'] ?></td>
-                                    <td class="text-right"><?= $value['amount'] ?></td>
                                     <td class=""><?= $value['link'] ?></td>
-                                    <td class="text-center"><?= $value['ttype'] ?></td>
+                                    <td class="text-center"><?= $value['ttype'] ?> - <?= $value['task_type'] ?></td>
                                     <td class="text-center"><?= get_plan($value['plan'])['name'] ?></td>
+                                    <td class="text-center"><?= $value['unit'] ?></td>
                                     <td class="text-center">
                                         <a href="<?= base_url('plans/edit_task/').$value['id'] ?>" class="btn btn-primary btn-mini">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <a href="<?= base_url('plans/delete_task/').$value['id'] ?>" class="btn btn-danger btn-mini btn-delete">
+                                        <!-- <a href="<?= base_url('plans/delete_task/').$value['id'] ?>" class="btn btn-danger btn-mini btn-delete">
                                             <i class="fa fa-trash"></i>
-                                        </a>
+                                        </a> -->
                                     </td>
                                 </tr>
                             <?php } ?>

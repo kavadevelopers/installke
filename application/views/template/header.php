@@ -35,10 +35,10 @@
                 <a href="<?= base_url('task') ?>" class="<?= $this->uri->segment(1) == "task"?'active-nav':'' ?>">
                     <i class="fa fa-tasks"></i><span>Tasks</span>
                 </a>
-                <a href="#" class="circle-nav <?= $this->uri->segment(1) == ""?'active-nav':'' ?>">
+                <a href="<?= base_url('plan') ?>" class="circle-nav <?= $this->uri->segment(1) == "plan"?'active-nav':'' ?>">
                     <i class="fa fa-newspaper"></i><span>Plan</span>
                 </a>
-                <a href="#">
+                <a href="<?= base_url('record') ?>" class="<?= $this->uri->segment(1) == "record"?'active-nav':'' ?>">
                     <i class="fa fa-file-text"></i><span>Record</span>
                 </a>
                 <a href="<?= base_url('profile') ?>" class="<?= $this->uri->segment(1) == "profile"?'active-nav':'' ?>">

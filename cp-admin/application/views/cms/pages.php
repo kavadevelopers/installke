@@ -120,8 +120,10 @@
         { name: 'tools', groups: [ 'tools' ] },
         { name: 'others', groups: [ 'others' ] }
     ];
+    CKEDITOR.editorConfig = function( config ) {
+        config.extraPlugins = 'colorbutton';
+    };
     CKEDITOR.replace( 'editor',{
-        toolbar : 'Basic',
-        toolbarGroups,
+        toolbar : 'Basic'
     });
 </script>
