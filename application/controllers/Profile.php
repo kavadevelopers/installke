@@ -154,6 +154,10 @@ class Profile extends CI_Controller
 	
 	public function save_deposit()
 	{
+		if(empty($this->input->post('amount'))){
+			redirect(base_url('profile/deposit'),'refresh');
+		}
+
 		$data = [
 			'user'		=> $this->session->userdata('loginId'),
 			'amount'	=> $this->input->post('amount'),

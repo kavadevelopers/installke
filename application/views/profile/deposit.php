@@ -61,11 +61,16 @@
 <script type="text/javascript">
     $(function(){
         $('#depositForm').submit(function(){
-            if(parseFloat($('#depositAmount').val()) < 200){
+            if(isNumeric($('#depositAmount').val()) && parseFloat($('#depositAmount').val()) < 200){
                 $('#errorMsg').html('Minimum deposit must more than 200 INR');
                 $('#errorMsg').show();
                 return false;
             }
         });
     })
+    function isNumeric(str) {
+      if (typeof str != "string") return false // we only process strings!  
+      return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+             !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+    }
 </script>
