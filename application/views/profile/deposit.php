@@ -18,7 +18,7 @@
                     </div>
                     <div class="input-style input-style-2 mb-3 pb-1">
                         <span class="input-style-1-active">Amount To Deposit</span>
-                        <input type="text" placeholder="Amount To Deposit" id="depositAmount" autocomplete="off" name="amount" class="decimal-num" value="" required>
+                        <input type="number" placeholder="Amount To Deposit" id="depositAmount" autocomplete="off" name="amount" class="decimal-num" value="" required>
                     </div>
                     <!-- <div class="input-style input-style-2 mb-3 pb-1">
                         <span class="input-style-1-active">Name</span>
