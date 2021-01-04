@@ -151,7 +151,7 @@
                 		<td class="color-red-light">21,600</td>
                 	</tr>
                 	<tr>
-                		<td class="color-red-light">PLAN 3</td>
+                		<td class="color-red-light">PLAN 6</td>
                 		<td class="color-red-light">25,000</td>
                 		<td class="color-red-light">55</td>
                 		<td class="color-red-light">28</td>
@@ -192,7 +192,7 @@
                 		<td class="color-red-light">64,800</td>
                 	</tr>
                 	<tr>
-                		<td class="color-red-light">PLAN 3</td>
+                		<td class="color-red-light">PLAN 6</td>
                 		<td class="color-red-light">75,000</td>
                 		<td class="color-red-light">55</td>
                 		<td class="color-red-light">28</td>
@@ -233,7 +233,7 @@
                 		<td class="color-red-light">129,600</td>
                 	</tr>
                 	<tr>
-                		<td class="color-red-light">PLAN 3</td>
+                		<td class="color-red-light">PLAN 6</td>
                 		<td class="color-red-light">150,000</td>
                 		<td class="color-red-light">55</td>
                 		<td class="color-red-light">28</td>

@@ -70,6 +70,7 @@
 	                <div class="mx-0 mb-2 p-3">
 	                    <h6 class="font-18"><?= $value['name'] ?></h6>
 	                    <h6 class="mb-0">Daily task : <?= $value['task'] ?></h6>
+	                    <p class="mb-0">Per task pay: <?= $value['single_commission'] ?></p>
 	                </div>
 	            </div>
 	            <div class="col-4 pl-1">

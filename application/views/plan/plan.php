@@ -18,13 +18,15 @@
                     <div class="col-6 pr-1">
                         <a href="#" class="btn btn-full btn-m withdraw-amount-select-btn rounded-s font-13 font-600 btn-amount-with" data-amount="<?= $single['amount'] * 3 ?>" data-day="3">
                             <h5 class="mb-0">3 Day</h5>
-                            <p class="color-red-light"><?= pretyAmount($single['amount'] * 3) ?></p>
+                            <p class="color-red-light mb-0"><?= pretyAmount($single['amount'] * 3) ?></p>
+                            <p class="color-red-light">Income <?= pretyAmount($single['daily_income'] * 3) ?></p>
                         </a>
                     </div>
                     <div class="col-6 pl-1">
                         <a href="#" class="btn btn-full btn-m withdraw-amount-select-btn rounded-s font-13 font-600 btn-amount-with" data-amount="<?= $single['amount'] * 30 ?>" data-day="30">
                             <h5 class="mb-0">30 Day</h5>
-                            <p class="color-red-light"><?= pretyAmount($single['amount'] * 30) ?></p>
+                            <p class="color-red-light mb-0"><?= pretyAmount($single['amount'] * 30) ?></p>
+                            <p class="color-red-light">Income <?= pretyAmount($single['daily_income'] * 30) ?></p>
                         </a>
                     </div>
                 </div>
@@ -32,13 +34,15 @@
                     <div class="col-6 pr-1">
                         <a href="#" class="btn btn-full btn-m withdraw-amount-select-btn rounded-s font-13 font-600 btn-amount-with" data-amount="<?= $single['amount'] * 90 ?>" data-day="90">
                             <h5 class="mb-0">90 Day</h5>
-                            <p class="color-red-light"><?= pretyAmount($single['amount'] * 90) ?></p>
+                            <p class="color-red-light mb-0"><?= pretyAmount($single['amount'] * 90) ?></p>
+                            <p class="color-red-light">Income <?= pretyAmount($single['daily_income'] * 90) ?></p>
                         </a>
                     </div>
                     <div class="col-6 pl-1">
                         <a href="#" class="btn btn-full btn-m withdraw-amount-select-btn rounded-s font-13 font-600 btn-amount-with" data-amount="<?= $single['amount'] * 180 ?>" data-day="180">
                             <h5 class="mb-0">180 Day</h5>
-                            <p class="color-red-light"><?= pretyAmount($single['amount'] * 180) ?></p>
+                            <p class="color-red-light mb-0"><?= pretyAmount($single['amount'] * 180) ?></p>
+                            <p class="color-red-light">Income <?= pretyAmount($single['daily_income'] * 180) ?></p>
                         </a>
                     </div>
                 </div>

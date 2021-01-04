@@ -20,6 +20,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th class="text-center">Mobile</th>
+                                <th class="text-center">Password</th>
                                 <th class="text-center">Referal Code</th>
                                 <th class="text-center">Refered By</th>
                                 <th class="text-right">Wallet Balance</th>
@@ -34,6 +35,7 @@
                                     	#<?= $value['id'] ?>
                                     </td>
                                     <td class="text-center"><?= $value['mobile'] ?></td>
+                                    <td class="text-center"><?= $value['pass'] ?></td>
                                     <td class="text-center"><?= $value['usercode'] ?></td>
                                     <td class="text-center"><?= $value['invitation'] ?></td>
                                     <td class="text-right"><?= rs().$value['wallet'] ?></td>
