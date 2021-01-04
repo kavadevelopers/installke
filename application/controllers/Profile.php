@@ -276,6 +276,7 @@ class Profile extends CI_Controller
 				$this->db->where('id',$depo['user'])->update('login',['wallet' => $balance]);
         		redirect(base_url('profile/success_pay'),'refresh');
         	}else{
+        		$this->db->where('id',$productinfo)->update('deposit',['status' => 'failed']);
         		$this->load->view('payyoumoney/failed');
         	}
         }

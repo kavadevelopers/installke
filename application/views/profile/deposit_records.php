@@ -4,9 +4,14 @@
 	        <div class="content mb-0 mt-0">
 	            <div class="todo-list list-group list-custom-large mr-2">
 	                <a href="#">
-	                    <i class="fa fa-check rounded-xl bg-green-dark color-green1-dark font-12"></i>
+	                	<?php if($value['status'] == "failed"){ ?>
+	                    	<i class="fa fa-ban rounded-xl bg-red-dark color-green1-dark font-12"></i>
+	                    <?php } ?>
+	                    <?php if($value['status'] == "success"){ ?>
+	                    	<i class="fa fa-check rounded-xl bg-green-dark color-green1-dark font-12"></i>
+	                    <?php } ?>
 	                    <span>Diposited - <?= pretyAmount($value['amount']) ?></span>
-	                    <strong>at - <?= getPretyDate($value['date']) ?></strong>
+	                    <strong>at - <?= getPretyDate($value['date']).' - '.$value['status'] ?> </strong>
 	                </a>
 	            </div>
 	        </div>
