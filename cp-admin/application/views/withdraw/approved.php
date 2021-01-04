@@ -28,7 +28,7 @@
                         <tbody>
                             <?php foreach ($list as $key => $value) { ?>
                                 <tr>
-                                    <td class="text-center"><?= getCustomer($value['user'])['mobile'] ?></td>
+                                    <td class="text-center"><?= getCustomer($value['user'])['mobile'] ?><br>Plan - <?= get_plan(getCustomer($value['user'])['plan'])['name'] ?><br>Expire on - <?= vd(getCustomer($value['user'])['expireon']) ?></td>
                                     <td class="text-right"><?= rs().$value['amount'] ?></td>
                                     <td class="text-center"><?= vd($value['date']) ?></td>
                                     <td>
